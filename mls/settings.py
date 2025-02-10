@@ -145,5 +145,5 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
 
-MLS_BASRURL = 'https://mls-chgt.onrender.com'
+CSRF_TRUSTED_ORIGINS  = 'https://mls-chgt.onrender.com'
 
