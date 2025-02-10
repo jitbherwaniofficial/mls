@@ -1,0 +1,526 @@
+{% load static %}
+{% load custom_filters %}  {# Load the filter at the top of the file #}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MLS Report Details</title>
+    <link rel="stylesheet" href="{% static 'css/mlsreport.css' %}">
+</head>
+
+<body>
+    <!-- SECTION ONE -->
+    <section class="section_one">
+        <figure class="section_one_left">
+            <img src="{{ property.main_image }}"
+                alt="Dynamic Image">
+                <figcaption>{{ property.title }}</figcaption>
+        </figure>
+        <div class="section_one_right">
+            <div class="section_one_right_upper">
+                <div class="section_one_right_upper_left">
+                    <h1 class="property_address">
+                        {{ property.address_1 }}
+                    </h1>
+                    <p class="postal_code_address">
+                        {{ property.address_3 }} {{ property.address_4 }}
+                    </p>
+                </div>
+                <div class="section_one_right_upper_right">
+                    <figure class="upper_right_image">
+                        <img src="{% static 'img/top_right_img.jpg' %}" alt="Static Image">
+                    </figure>
+                    <p class="tag_container1">
+                        {{ property.status }}
+                    </p>
+                    <p class="tag_container">
+                        {{ property.condition }}
+                    </p>
+                </div>
+            </div>
+            <div class="section_one_right_lower">
+                <div class="blue_bar">
+                    <p class="blue_bar_content">
+                        Taxes: {{ property.taxes }} / {{ listing_info.tax_year }}
+                    </p>
+                    <p class="blue_bar_content">
+                        {{ property_info.square_feet }}Sq Ft 
+                    </p>
+                    <p class="blue_bar_content">
+                        SPIS: {{ listing_info.seller_info }}
+                    </p>
+                </div>
+                <div class="features_container">
+                    {% if property.features.Rooms %}
+                    <div class="features">
+                        <figure class="feature_image">
+                            <img src="{% static 'img/living.jpg' %}" alt="">
+                        </figure>
+                        <p class="no">
+                            {{ property.features.Rooms}}
+                        </p>
+                        <p class="room_name">
+                            Rooms
+                        </p>
+                    </div>
+                    {% endif %}
+
+                    {% if property.features.Beds %}
+                    <div class="features">
+                        <figure class="feature_image">
+                            <img src="{% static 'img/bedroom.jpg' %}" alt="">
+                        </figure>
+                        <p class="no">
+                            {{ property.features.Beds}}
+                        </p>
+                        <p class="room_name">
+                            Bedrooms
+                        </p>
+                    </div>
+                    {% endif %}
+
+                    {% if property.features.Baths %}
+                    <div class="features">
+                        <figure class="feature_image">
+                            <img src="{% static 'img/washroom.jpg' %}" alt="">
+                        </figure>
+                        <p class="no">
+                            {{ property.features.Baths}}
+                        </p>
+                        <p class="room_name">
+                            Washrooms
+                        </p>
+                    </div>
+                    {% endif %}
+
+                    {% if property.features|get_item:"tot prk spcs" %}
+                    <div class="features">
+                        <figure class="feature_image">
+                            <img src="{% static 'img/parking.jpg' %}" alt="">
+                        </figure>
+                        <p class="no">
+                            {{ property.features|get_item:"tot prk spcs" }}
+                        </p>
+                        <p class="room_name">
+                            Parkings
+                        </p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION TWO -->
+    <section class="section_two">
+        <div class="section_wrapper section_two_wrapper">
+            <p class="section_two_para">{{property.title}}</p>
+            <p class="section_two_para">Front On: {{property_info.fronting_on}}</p>
+            <p class="section_two_para">Status: {{property.status}}</p>
+            <p class="section_two_para">Lot Size: {{property_info.lot_size}}</p>
+            <p class="section_two_para">Legal Desc: {{listing_info.legal_description}}</p>
+        </div>
+    </section>
+    <!-- SECTION THREE -->
+    <section class="section_three">
+        <p class="client_desc">CLIENT DESCRIPTION</p>
+        <div class="section_wrapper section_three_wrapper">
+            <p class="client_desc_para">{{ property.client_remark }}</p>
+            <p class="extras">Extras: {{ property.extras }}</p>
+        </div>
+    </section>
+    <!-- SECTION FOUR -->
+    <section class="section_four">
+        <p class="client_desc mls_info">MLS INFORMATION</p>
+        <div class="section_wrapper section_four_wrapper">
+            <div class="mls_wrapper">
+                <div class="mls_box">
+                    <p class="mls_box_para"><span>MLS Number:</span> <span class="second_span">{{ report.mls_number }}</span></p>
+                    <p class="mls_box_para"><span>Taxes:</span> <span class="second_span">{{ listing_info.taxes }}</span></p>
+                    <p class="mls_box_para"><span>PIN Number:</span> <span class="second_span">{{ listing_info.pin_number }}</span></p>
+                    <p class="mls_box_para"><span>Possession Remarks:</span> <span class="second_span">{{ listing_info.possession_remarks }}</span></p>
+                </div>
+                <div class="mls_box">
+                    <p class="mls_box_para"><span>Approximate Age:</span> <span class="second_span">{{ property_info.approx_age }}</span></p>
+                    <p class="mls_box_para"><span>Drive:</span> <span class="second_span">{{ property_info.drive }}</span></p>
+                    <p class="mls_box_para"><span>Tax Year:</span> <span class="second_span">{{ listing_info.tax_year }}</span></p>
+                    <p class="mls_box_para"><span></span> <span class="second_span"></span></p>
+                </div>
+                <div class="mls_box">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION FIVE -->
+    <section class="section_five">
+        <div class="basic_needs_container">
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <img src="{% static 'img/gas.svg' %}" alt="">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            {{ property_info.heating_source }}
+                        </p>
+                        <p class="bar_zone">
+                            {{ property_info.fronting_on }}
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            {{ property_info.sewers }}
+                        </p>
+                        <p class="bar_zone">
+                            {{ property_info.fronting_on }}
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            {{ property_info.sewers }}
+                        </p>
+                        <p class="bar_zone">
+                            {{ property_info.fronting_on }}
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            {{ property_info.sewers }}
+                        </p>
+                        <p class="bar_zone">
+                            {{ property_info.fronting_on }}
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            {{ property_info.sewers }}
+                        </p>
+                        <p class="bar_zone">
+                            {{ property_info.fronting_on }}
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            {{ property_info.sewers }}
+                        </p>
+                        <p class="bar_zone">
+                            {{ property_info.fronting_on }}
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            {{ property_info.sewers }}
+                        </p>
+                        <p class="bar_zone">
+                            {{ property_info.fronting_on }}
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            {{ property_info.sewers }}
+                        </p>
+                        <p class="bar_zone">
+                            {{ property_info.fronting_on }}
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            {{ property_info.sewers }}
+                        </p>
+                        <p class="bar_zone">
+                            {{ property_info.fronting_on }}
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            {{ property_info.sewers }}
+                        </p>
+                        <p class="bar_zone">
+                            {{ property_info.fronting_on }}
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            {{ property_info.sewers }}
+                        </p>
+                        <p class="bar_zone">
+                            {{ property_info.fronting_on }}
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            {{ property_info.sewers }}
+                        </p>
+                        <p class="bar_zone">
+                            {{ property_info.fronting_on }}
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            {{ property_info.sewers }}
+                        </p>
+                        <p class="bar_zone">
+                            {{ property_info.fronting_on }}
+                        </p>
+                    </div>
+            </div>
+        <div class="basic_needs_bar hid">
+                <figure class="icon_circle">
+                </figure>
+                <div class="bar_right">
+                    <p class="bar_title">
+                    </p>
+                    <p class="bar_zone">
+                    </p>
+                </div>
+        </div>
+        <div class="basic_needs_bar hid">
+            <figure class="icon_circle">
+            </figure>
+            <div class="bar_right">
+                <p class="bar_title">
+                </p>
+                <p class="bar_zone">
+                </p>
+            </div>
+    </div>
+    <div class="basic_needs_bar hid">
+        <figure class="icon_circle">
+        </figure>
+        <div class="bar_right">
+            <p class="bar_title">
+            </p>
+            <p class="bar_zone">
+            </p>
+        </div>
+</div>
+        </div>
+    </section>
+    <!-- SECTION SIX -->
+    <!-- <section class="section_six">
+        <div class="section_wrapper section_six_wrapper">
+            <div class="left_part_rect">
+                <div class="six_para_container">
+                    <p class="six_para">Kitchens:</p>
+                    <p class="six_para">{{report.kitchens}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Fam Room:</p>
+                    <p class="six_para">{{report.family_room}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Basement:</p>
+                    <p class="six_para">{{report.basement}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Fireplace/Stv:</p>
+                    <p class="six_para">{{report.fireplace_stv}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Heat:</p>
+                    <p class="six_para">{{report.heat}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Air Conditioning:</p>
+                    <p class="six_para">{{report.air_conditioning}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Central Vac:</p>
+                    <p class="six_para">{{report.central_vac}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Approximate Age:</p>
+                    <p class="six_para">{{report.approximate_age}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Approximate Sqft:</p>
+                    <p class="six_para">{{report.approximate_sqft}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Assessment:</p>
+                    <p class="six_para">{{report.assesment}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">POTL:</p>
+                    <p class="six_para">{{report.potl}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Elevator/Lift:</p>
+                    <p class="six_para">{{report.elevator_lift}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Laundry Lev:</p>
+                    <p class="six_para">{{report.laundry_lev}}</p>
+                </div>
+                <div class="six_para_container last">
+                    <p class="six_para">Physical Hdcp-Eqp:</p>
+                    <p class="six_para">{{report.physical_hdcp_eqp}}</p>
+                </div>
+            </div>
+            <div class="right_part_rect">
+                <div class="six_para_container">
+                    <p class="six_para">Exterior:</p>
+                    <p class="six_para">{{report.exterior}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Drive:</p>
+                    <p class="six_para">{{report.drive}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Garage / Parking Space:</p>
+                    <p class="six_para">{{report.garage_parking_space}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Total Parkings:</p>
+                    <p class="six_para">{{report.total_parkings}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">UFFI:</p>
+                    <p class="six_para">{{report.uffi}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Pool:</p>
+                    <p class="six_para">{{report.pool}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Energy Certificate:</p>
+                    <p class="six_para">{{report.energy_certificate}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Certificate Level:</p>
+                    <p class="six_para">{{report.certificate_level}}</p>
+                </div>
+                <div class="six_para_container">
+                    <p class="six_para">Green PIS:</p>
+                    <p class="six_para">{{report.green_pis}}</p>
+                </div>
+                <div class="six_para_container last">
+                    <p class="six_para">Prop Feat:</p>
+                    <p class="six_para">{{report.prop_feat}}</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- SECTION SEVEN -->
+    <section class="section_seven">
+        <div class="section_wrapper">
+            <table>
+                <thead class="thead">
+                    <tr>
+                        <th class="f1 dd">#</th>
+                        <th class="fl">ROOM</th>
+                        <th class="fl">LEVEL</th>
+                        <th class="fl">LENGTH(FEET)</th>
+                        <th class="fl" style="border-right: 1px solid #2A4E96;">WIDTH(FEET)</th>
+                        <th class="f1 ee">DESCRIPTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for room in rooms %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ room.name }}</td>
+                        <td class="level">
+                            <span class="{% if room.level == 'Main' %}level_main{% elif room.level == 'Upper' %}level_second{% elif room.level == 'Lower' %}level_lower{% else %}level_basement{% endif %}">
+                                {{ room.level }}
+                            </span>
+                        </td>
+                        <td>{{ room.width_ft }}</td>
+                        <td>{{ room.height_ft }}</td>
+                        <td>{{ room.notes }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- SECTION EIGHT -->
+    <section class="section_seven">
+        <div class="section_wrapper">
+            <table>
+                <thead class="thead">
+                    <tr>
+                        <th class="f1 dd">#</th>
+                        <th class="fl" style="border-left: 1px solid #2A4E96;">Room</th>
+                        <th class="fl" style="border-right: 1.5px solid #2A4E96;">PIECES</th>
+                        <th class="f1 ee">LEVEL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for wash in washrooms %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>Washroom</td>
+                        <td>{{ wash.pieces }}</td>
+                        <td class="level">
+                            <span class="{% if wash.level == 'Main' %}level_main{% elif wash.level == 'Upper' %}level_second{% elif wash.level == 'Lower' %}level_lower{% else %}level_basement{% endif %}">
+                                {{ wash.level }}
+                            </span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+
+</html>

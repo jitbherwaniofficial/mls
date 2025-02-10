@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    letter-spacing: 5px;
+    font-size: 3rem;
+    color: gray;
+    padding-bottom: 1rem;
+    font-weight: 400;
+}
+
+h2 {
+    color: gray;
+    padding-bottom: 1rem;
+    font-weight: 400
+}
+
+p {
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    color: #100000;
+    font-weight: 300;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+p strong {
+    color: #141414;
+}
+
+.box {
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 0;    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.step {
+    padding: 1rem 0;
+    width: 40%;
+}
+
+.one, .two, .three, .four{
+    /* width: 50%; */
+}
+
+.two, .four {
+    text-align: end;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit MLS Report</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Edit MLS Report</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <!-- MLSReport Form -->
+        <h2>MLS Report Details</h2>
+        {{ mls_form.as_p }}
+
+        <!-- Room Formset -->
+        <h2>Rooms</h2>
+        <div id="room-formset">
+            {{ room_formset.management_form }}
+            {% for form in room_formset %}
+                <div class="room-form">
+                    {{ form.as_p }}
+                    <br>
+                    <hr>
+                </div>
+            {% endfor %}
+        </div>
+        <button type="button" id="add-room">Add Room</button>
+
+        <!-- Submit Button -->
+        <button type="submit">Save Changes</button>
+    </form>
+
+    <script>
+        // Add Room Functionality
+        document.getElementById('add-room').addEventListener('click', function () {
+            const formsetDiv = document.getElementById('room-formset'); // The formset container
+            const totalForms = document.getElementById('id_rooms-TOTAL_FORMS'); // Hidden TOTAL_FORMS input
+            const currentFormCount = parseInt(totalForms.value, 10); // Current total number of forms
+
+            // Clone the first form in the formset
+            const newForm = formsetDiv.querySelector('.room-form').cloneNode(true);
+
+            // Update the new form's input names and IDs
+            newForm.querySelectorAll('input, select, textarea').forEach(function (input) {
+                const name = input.name.replace(/-\d+-/, `-${currentFormCount}-`); // Update the name
+                const id = input.id.replace(/-\d+-/, `-${currentFormCount}-`); // Update the id
+                input.name = name;
+                input.id = id;
+                input.value = ''; // Clear the input value
+            });
+
+            formsetDiv.appendChild(newForm); // Append the new form
+            totalForms.value = currentFormCount + 1; // Increment TOTAL_FORMS
+        });
+    </script>
+</body>
+</html>

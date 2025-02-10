@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Edit Property: {{ property.title }}</h2>
+  
+  <form method="post">
+    {% csrf_token %}
+    
+    <h3>Property Details</h3>
+    {{ property_form.as_p }}
+
+    <h3>Listing Information</h3>
+    {{ listing_info_form.as_p }}
+
+    <h3>Property Information</h3>
+    {{ property_info_form.as_p }}
+
+    <h3>Rooms</h3>
+    {{ room_formset.management_form }}
+    {% for form in room_formset %}
+        {{ form.as_p }}
+    {% endfor %}
+
+    <h3>Washrooms</h3>
+    {{ washroom_formset.management_form }}
+    {% for form in washroom_formset %}
+        {{ form.as_p }}
+    {% endfor %}
+
+    <button type="submit">Update Property</button>
+  </form>
+
+  <a href="{% url 'view_property_mls' property.pk %}">Cancel</a>
+{% endblock %}

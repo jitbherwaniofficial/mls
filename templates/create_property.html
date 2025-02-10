@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Create MLS</h2>
+
+    {# ✅ Separate JSON Upload Form #}
+    <h3>Upload JSON File</h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ json_form.as_p }}
+        <button type="submit" name="json_upload">Upload JSON</button>
+    </form>
+
+    <hr>
+
+    {# ✅ Separate Manual Entry Form #}
+    <h3>Or Manually Enter Property Details</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ property_form.as_p }}
+        {{ listing_info_form.as_p }}
+        {{ property_info_form.as_p }}
+        {{ room_formset.management_form }}
+        {% for form in room_formset %}
+            {{ form.as_p }}
+        {% endfor %}
+        {{ washroom_formset.management_form }}
+        {% for form in washroom_formset %}
+            {{ form.as_p }}
+        {% endfor %}
+        <button type="submit">Create Property</button>
+    </form>
+{% endblock %}
