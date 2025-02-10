@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['mls.onrender.com', '127.0.0.1']
+ALLOWED_HOSTS = ['https://mls-chgt.onrender.com', '127.0.0.1']
 
 
 # Application definition
@@ -145,5 +145,5 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
 
-MLS_BASRURL = 'https://mls.onrender.com'
+MLS_BASRURL = 'https://mls-chgt.onrender.com'
 
