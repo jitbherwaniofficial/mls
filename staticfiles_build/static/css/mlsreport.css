@@ -1,0 +1,481 @@
+@page {
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('static/fonts/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: #F1F5F9;
+}
+
+.section_one {
+    display: flex;
+}
+
+.section_one_left {
+    width: 42%;
+    height: 15rem;
+    position: relative;
+}
+
+.section_one_left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+figcaption {
+    position: absolute;
+    width: 100%;
+    padding: 0.7rem;
+    background-color: rgba(238, 238, 238, 0.4);
+    text-align: center;
+    bottom: 0;
+}
+
+
+.shadow_box {
+    border-bottom: 2px solid #ddd; /* Light gray border for a shadow effect */
+    border-left: 2px solid #ddd; /* Light gray border for a shadow effect */
+    background-color: #fff;
+}
+
+.section_one_right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 55%;
+    flex-direction: column;
+    margin-left: 0.8rem;
+}
+
+.section_one_right_upper {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 0.3rem 0.6rem;
+    margin-top: 0.6rem;
+    background-color: white;
+    border-radius: 1rem;
+    position: relative;
+    width: 100%;
+}
+
+.property_address {
+    font-size: 1rem;
+    font-weight: 600;
+    width: 70%;
+    padding: 0.5rem 0;
+}
+
+.postal_code_address {
+    font-size: 0.8rem;
+    border-top: 2px solid #eee;
+    padding: 0.5rem 0;
+}
+
+.upper_right_image {
+    position: absolute;
+    right: 0;
+    bottom: -0.5rem;
+    width: 12rem;
+    height: 6rem;
+}
+
+.upper_right_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.tag_container1 {
+    position: absolute;
+    right: 7rem;
+    top: 0;
+    background-color: #1EAF24;
+    padding: 0.3rem 1rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 0.8rem;
+}
+
+.tag_container {
+    position: absolute;
+    right: 2rem;
+    top: 0;
+    background-color: #1EAF24;
+    padding: 0.3rem 1rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 0.8rem;
+}
+
+.blue_bar {
+    background-color: #B0D4FF;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    padding: 0.6rem;
+    margin: 0 auto;
+    margin-top: -1rem;
+    width: 90%;
+    border-bottom-right-radius: 1.2rem;
+    border-bottom-left-radius: 1.2rem;
+}
+
+.blue_bar_content {
+    background-color: white;
+    padding: 0.2rem 0.7rem;
+    border-radius: 1rem;
+    font-size: 0.65rem;
+}
+
+.features_container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.feature_image {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-top: -0.3rem;
+}
+
+.feature_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.no, .room_name {
+    text-align: center;
+}
+
+.no {
+    margin-top: -0.5rem;
+}
+
+.room_name {
+    font-size: 0.80rem;
+    font-weight: 400;
+}
+
+/* SECTION TWO */
+.section_wrapper {
+    width: 92%;
+    margin: 0 auto;
+}
+
+.section_two {
+    width: 100%;
+    padding: 2rem 0;
+    padding-bottom: 1rem;
+}
+
+.section_two_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.section_two_wrapper .section_two_para {
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+    font-size: 0.81rem;
+}
+
+/* 2A4E96 */
+
+.section_three {
+    width: 100%;
+}
+
+.client_desc {
+    width: 92%;
+    margin: 0 auto;
+    color: #2A4E96;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding-bottom: 0.5rem;
+}
+
+.section_three_wrapper {
+    background-color: #fff;
+    width: 100%;
+    height: 15rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    padding-top: 0.7rem;
+    border-top: 1px solid #B0D3FE;
+    border-bottom: 1px solid #B0D3FE;
+}
+
+.client_desc_para {
+    width: 92%;
+    font-size: 0.7rem;
+    margin: 0 auto;
+    margin-bottom: 0.7rem;
+}
+
+.extras {
+    width: 92%;
+    margin: 0 auto;
+    font-size: 0.7rem;
+}
+
+/* SECTION FOUR */
+.section_four {
+    width: 100%;
+}
+
+.mls_info {
+    padding-top: 2rem;
+}
+
+.section_four_wrapper {
+    height: 10rem;
+    background-color: #fff;
+    width: 100%;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    padding-top: 1.3rem;
+    margin-top: 0;
+    border-top: 1px solid #B0D3FE;
+    border-bottom: 1px solid #B0D3FE;
+}
+
+.mls_wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 92%;
+    margin: 0 auto;
+}
+
+.mls_box {
+    width: 29%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    
+}
+
+.mls_box_para {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+}
+
+.mls_box span {
+    display: inline-block;
+}
+
+.second_span {
+    color: #2A4E96;
+}
+
+/* SECTION FIVE */
+.basic_needs_container {
+    width: 92%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 1.8rem;
+    height: 15rem;
+    align-items: flex-start;
+}
+
+.basic_needs_bar {
+    width: 11rem;
+    flex: 1 1 auto;
+    height: 1.2rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    align-self: flex-start;
+    margin-right: 0.5rem;
+    font-size: 0.7rem;
+    border: 1px solid #B0D4FF;
+    background-color: white;
+    border-radius: 2rem;
+}
+
+
+.icon_circle {
+    width: 2.3rem;
+    height: 2.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #2A4E96;
+    margin-top: -0.35rem;
+    margin-left: -0.35rem;
+}
+
+.bar_right {
+    padding-left: 0.3rem;
+}
+
+.bar_title {
+    font-weight: 600;
+    font-size: 0.7rem;
+    border-bottom: 0.2px solid rgba(42, 78, 150, 0.3);
+    padding-bottom: 0.2rem;
+    margin-top: -0.2rem;
+}
+
+.bar_zone {
+    font-weight: 500;
+}
+
+.hid {
+    visibility: hidden;
+}
+
+/* SECTION SIX */
+.section_six {
+    width: 100%;
+}
+
+.section_six_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 2rem;
+    padding: 2rem 0;
+}
+
+.left_part_rect, .right_part_rect {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    padding-top: 0.5rem;
+    background-color: #fff;
+    width: 44%;
+    height: 32rem;
+    border: 1px solid #B0D4FF;
+}
+
+.six_para_container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #B0D4FF;
+}
+
+.last {
+    border-bottom: none;
+}
+
+
+/* section seven */
+.section_seven {
+    padding-top: 1.5rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.70rem;
+}
+th, td {
+    /* padding: 8px 12px; */
+    height: 2.5rem;
+    padding: 0 0.8rem;
+    text-align: left;
+}
+td {
+    border-bottom: 1px solid #B0D4FF;
+    font-size: 0.75rem;
+}
+
+th {
+    background-color: #2A4E96;
+    color: #fff;
+}
+
+.dd {
+    border-top-left-radius: 1.5rem;
+    /* border-bottom-left-radius: 1.5rem; */
+}
+
+.ee {
+    border-top-right-radius: 1.5rem;
+    
+    border: none;
+    /* border-bottom-right-radius: 1.5rem; */
+}
+
+.fl {
+    border-radius: 0;
+    /* border: none; */
+    
+}
+
+.thead {
+    border-radius: 1rem;
+}
+
+tr {
+    background-color: #fff;
+}
+
+.level {
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.level_main {
+    background-color: #B0D4FF;
+    padding: 0.3rem 1rem;
+    border-radius: 1rem;
+    text-align: start;
+}
+
+.level_second {
+    background-color: #FFB98A;
+    padding: 0.3rem 1rem;
+    border-radius: 1rem;
+    text-align: start;
+}
+
+.level_lower {
+    background-color: #ca8aff;
+    padding: 0.3rem 1rem;
+    border-radius: 1rem;
+    text-align: start;
+}
+
+.level_basement {
+    background-color: #BFE8B5;
+    padding: 0.3rem 1rem;
+    border-radius: 1rem;
+    text-align: start;
+}
+
