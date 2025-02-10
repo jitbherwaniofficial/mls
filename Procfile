@@ -1,1 +1,1 @@
-web: gunicorn mls.wsgi:application
+web: gunicorn --chdir mls mls.wsgi:application

@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['mls.onrender.com']
+ALLOWED_HOSTS = ['mls.onrender.com', '127.0.0.1']
 
 
 # Application definition
@@ -126,8 +126,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
-    'mls/static'
+    BASE_DIR / 'static'
 ]
+
 
 # MEDIA FILES 
 MEDIA_URL = '/media/'
