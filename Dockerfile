@@ -16,6 +16,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Collect static files (if using Whitenoise)
-RUN python manage.py collectstatic --noinput
 
-CMD gunicorn mls.wsgi --bind 0.0.0.0:${PORT:-8000}
+CMD python manage.py collectstatic --noinput && gunicorn mls.wsgi --bind 0.0.0.0:${PORT:-8000}
