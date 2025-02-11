@@ -147,5 +147,13 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
 
 CSRF_TRUSTED_ORIGINS  = 'https://mls.up.railway.app'
+# Required for Railway's proxy setup
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True  # Redirect HTTP to HTTPS
+
+# Cookie settings for CSRF and session
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_DOMAIN = ".railway.app"  # Allow subdomains
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
