@@ -148,4 +148,4 @@ LOGOUT_REDIRECT_URL = 'login'
 
 CSRF_TRUSTED_ORIGINS  = 'https://mls.up.railway.app'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
