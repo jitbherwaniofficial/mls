@@ -2,12 +2,20 @@
     margin: 0;
 }
 
+/* In mlsreport.css */
+@font-face {
+    font-family: 'OpenSans';
+    src: url('/static/fonts/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'OpenSans', DejaVu Sans, Liberation Sans, sans-serif;
 }
 
 body {
