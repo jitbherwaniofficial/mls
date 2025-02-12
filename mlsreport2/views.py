@@ -124,7 +124,7 @@ def create_property(request):
                 except json.JSONDecodeError:
                     messages.error(request, "Invalid JSON file. Please upload a valid file.")
 
-            return redirect("view_property_mls")  # Prevents manual form validation
+            return redirect("home")  # Prevents manual form validation
 
         # 🔹 Process manual form submission separately
         property_form = PropertyForm(request.POST)
