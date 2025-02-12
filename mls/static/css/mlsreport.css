@@ -101,6 +101,12 @@ figcaption {
     object-fit: contain;
 }
 
+.upper_right_image svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .tag_container1 {
     position: absolute;
     right: 7rem;
@@ -161,6 +167,12 @@ figcaption {
 }
 
 .feature_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.feature_image svg {
     width: 100%;
     height: 100%;
     object-fit: contain;
