@@ -309,7 +309,7 @@ def generate_mls_pdf(request, pk):
         }
 
                 # Add static URL with absolute path to context
-        context["static_base_url"] = request.build_absolute_uri(static(""))
+        # context["static_base_url"] = request.build_absolute_uri(static(""))
 
 
         # Render the template with the property data
@@ -330,9 +330,8 @@ def generate_mls_pdf(request, pk):
 
         # Generate the PDF
         # pdf = HTML(string=html_string, base_url=request.build_absolute_uri('/')).write_pdf(stylesheets=[css_file], timeout=120)
-        # pdf = HTML(string=html_string).write_pdf(stylesheets=[css_file], timeout=120)
+        pdf = HTML(string=html_string).write_pdf(stylesheets=[css_file], timeout=120)
 
-        pdf = html.write_pdf(stylesheets=[css_file], timeout=120)
 
         # Return PDF response
         response = HttpResponse(pdf, content_type="application/pdf")
