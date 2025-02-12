@@ -10,3 +10,6 @@ urlpatterns = [
     # path('mls-report/', include('mlsreport.urls')),
     path('mls/', include('mlsreport2.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
