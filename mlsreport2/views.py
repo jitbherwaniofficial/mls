@@ -301,10 +301,6 @@ def generate_mls_pdf(request, pk):
         if not css_path:
             raise FileNotFoundError(f"CSS file not found at: {css_path}")
         
-        # Verify font file exists
-        font_path = finders.find('fonts/OpenSans-VariableFont_wdth,wght.ttf')
-        if not font_path:
-            raise FileNotFoundError(f"Font file not found at: {font_path}")
 
         # Generate the PDF
         pdf = HTML(string=html_string, base_url=request.build_absolute_uri('/')).write_pdf(stylesheets=[CSS(css_path)])
