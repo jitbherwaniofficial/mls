@@ -248,10 +248,6 @@ from django.template.loader import render_to_string
 from .models import Property
 import logging
 from django.templatetags.static import static
-from django.contrib.staticfiles import finders
-import socket
-socket.setdefaulttimeout(60)  # Set timeout to 60 seconds
-
 
 # Set up logging
 logger = logging.getLogger(__name__)
@@ -297,16 +293,10 @@ def generate_mls_pdf(request, pk):
         # Render the template with the property data
         html_string = render_to_string("view_property_mls.html", context)
 
-        # css_file = CSS(request.build_absolute_uri(static('css/mlsreport.css')))
-
-         # Get absolute path to CSS using Ubuntu filesystem paths
-        css_path = finders.find('css/mlsreport.css')
-        if not css_path:
-            raise FileNotFoundError(f"CSS file not found at: {css_path}")
-        
+        css_file = CSS(request.build_absolute_uri(static('css/mlsreport.css')))
 
         # Generate the PDF
-        pdf = HTML(string=html_string, base_url=request.build_absolute_uri('/')).write_pdf(stylesheets=[CSS(css_path)])
+        pdf = HTML(string=html_string, base_url=request.build_absolute_uri('/')).write_pdf(stylesheets=[css_file])
 
         # Return PDF response
         response = HttpResponse(pdf, content_type="application/pdf")
