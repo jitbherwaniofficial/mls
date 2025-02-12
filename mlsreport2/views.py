@@ -249,6 +249,9 @@ from .models import Property
 import logging
 from django.templatetags.static import static
 from django.contrib.staticfiles import finders
+import socket
+socket.setdefaulttimeout(60)  # Set timeout to 60 seconds
+
 
 # Set up logging
 logger = logging.getLogger(__name__)
