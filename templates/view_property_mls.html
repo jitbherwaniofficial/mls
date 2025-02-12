@@ -28,7 +28,7 @@
                 </div>
                 <div class="section_one_right_upper_right">
                     <figure class="upper_right_image">
-                        <img src="{% static 'img/top_right_img.jpg' %}" alt="Static Image">
+                        <img src="{{ request.build_absolute_uri }}/static/img/top_right_img.jpg" alt="Static Image">
                     </figure>
                     <p class="tag_container1">
                         {{ property.status }}
@@ -54,7 +54,7 @@
                     {% if property.features.Rooms %}
                     <div class="features">
                         <figure class="feature_image">
-                            <img src="{% static 'img/living.jpg' %}" alt="">
+                            <img src="{{ request.build_absolute_uri }}/static/img/living.jpg" alt="">
                         </figure>
                         <p class="no">
                             {{ property.features.Rooms}}
@@ -68,7 +68,7 @@
                     {% if property.features.Beds %}
                     <div class="features">
                         <figure class="feature_image">
-                            <img src="{% static 'img/bedroom.jpg' %}" alt="">
+                            <img src="{{ request.build_absolute_uri }}/static/img/bedroom.jpg" alt="">
                         </figure>
                         <p class="no">
                             {{ property.features.Beds}}
@@ -82,7 +82,7 @@
                     {% if property.features.Baths %}
                     <div class="features">
                         <figure class="feature_image">
-                            <img src="{% static 'img/washroom.jpg' %}" alt="">
+                            <img src="{{ request.build_absolute_uri }}/static/img/washroom.jpg" alt="">
                         </figure>
                         <p class="no">
                             {{ property.features.Baths}}
@@ -96,7 +96,7 @@
                     {% if property.features|get_item:"tot prk spcs" %}
                     <div class="features">
                         <figure class="feature_image">
-                            <img src="{% static 'img/parking.jpg' %}" alt="">
+                            <img src="{{ request.build_absolute_uri }}/static/img/parking.jpg" alt="">
                         </figure>
                         <p class="no">
                             {{ property.features|get_item:"tot prk spcs" }}
@@ -155,7 +155,7 @@
         <div class="basic_needs_container">
             <div class="basic_needs_bar">
                     <figure class="icon_circle">
-                        <img src="{% static 'img/gas.svg' %}" alt="">
+                        <img src="{{ request.build_absolute_uri }}/static/img/gas.svg" alt="">
                     </figure>
                     <div class="bar_right">
                         <p class="bar_title">
@@ -168,7 +168,7 @@
             </div>
             <div class="basic_needs_bar">
                     <figure class="icon_circle">
-                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                        <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt="">
                     </figure>
                     <div class="bar_right">
                         <p class="bar_title">
@@ -181,7 +181,7 @@
             </div>
             <div class="basic_needs_bar">
                     <figure class="icon_circle">
-                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                        <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt="">
                     </figure>
                     <div class="bar_right">
                         <p class="bar_title">
@@ -194,7 +194,7 @@
             </div>
             <div class="basic_needs_bar">
                     <figure class="icon_circle">
-                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                        <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt="">
                     </figure>
                     <div class="bar_right">
                         <p class="bar_title">
@@ -207,7 +207,7 @@
             </div>
             <div class="basic_needs_bar">
                     <figure class="icon_circle">
-                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                        <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt="">
                     </figure>
                     <div class="bar_right">
                         <p class="bar_title">
@@ -220,7 +220,7 @@
             </div>
             <div class="basic_needs_bar">
                     <figure class="icon_circle">
-                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                        <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt="">
                     </figure>
                     <div class="bar_right">
                         <p class="bar_title">
@@ -233,7 +233,7 @@
             </div>
             <div class="basic_needs_bar">
                     <figure class="icon_circle">
-                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                        <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt="">
                     </figure>
                     <div class="bar_right">
                         <p class="bar_title">
@@ -246,7 +246,7 @@
             </div>
             <div class="basic_needs_bar">
                     <figure class="icon_circle">
-                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                        <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt="">
                     </figure>
                     <div class="bar_right">
                         <p class="bar_title">
@@ -259,7 +259,7 @@
             </div>
             <div class="basic_needs_bar">
                     <figure class="icon_circle">
-                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                        <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt="">
                     </figure>
                     <div class="bar_right">
                         <p class="bar_title">
@@ -272,7 +272,7 @@
             </div>
             <div class="basic_needs_bar">
                     <figure class="icon_circle">
-                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                        <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt="">
                     </figure>
                     <div class="bar_right">
                         <p class="bar_title">
@@ -285,7 +285,7 @@
             </div>
             <div class="basic_needs_bar">
                     <figure class="icon_circle">
-                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                        <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt="">
                     </figure>
                     <div class="bar_right">
                         <p class="bar_title">
@@ -298,7 +298,7 @@
             </div>
             <div class="basic_needs_bar">
                     <figure class="icon_circle">
-                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                        <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt="">
                     </figure>
                     <div class="bar_right">
                         <p class="bar_title">
@@ -311,7 +311,7 @@
             </div>
             <div class="basic_needs_bar">
                     <figure class="icon_circle">
-                        <img src="{% static 'img/sewer.svg' %}" alt="">
+                        <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt="">
                     </figure>
                     <div class="bar_right">
                         <p class="bar_title">
