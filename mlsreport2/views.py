@@ -332,7 +332,7 @@ def generate_mls_pdf(request, pk):
         # pdf = HTML(string=html_string, base_url=request.build_absolute_uri('/')).write_pdf(stylesheets=[css_file], timeout=120)
         # pdf = HTML(string=html_string).write_pdf(stylesheets=[css_file], timeout=120)
 
-        pdf = html.write_pdf(stylesheets=[css_file])
+        pdf = html.write_pdf(stylesheets=[css_file], timeout=120)
 
         # Return PDF response
         response = HttpResponse(pdf, content_type="application/pdf")
