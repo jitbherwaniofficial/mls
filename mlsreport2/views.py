@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.forms import inlineformset_factory
+
+from mls import settings
 from .models import Property, ListingInfo, PropertyInfo, Room, Washroom
 from .forms import PropertyForm, ListingInfoForm, PropertyInfoForm, RoomFormSet, WashroomFormSet
 from django.contrib.auth.decorators import login_required
@@ -293,10 +295,16 @@ def generate_mls_pdf(request, pk):
         # Render the template with the property data
         html_string = render_to_string("view_property_mls.html", context)
 
-        css_file = CSS(request.build_absolute_uri(static('css/mlsreport.css')))
+        # css_file = CSS(request.build_absolute_uri(static('css/mlsreport.css')))
+        import os
+        css_path = os.path.join(settings.STATIC_ROOT, 'css/mlsreport.css')
+        css_file = CSS(filename=css_path)
+
 
         # Generate the PDF
-        pdf = HTML(string=html_string, base_url=request.build_absolute_uri('/')).write_pdf(stylesheets=[css_file])
+        # pdf = HTML(string=html_string, base_url=request.build_absolute_uri('/')).write_pdf(stylesheets=[css_file], timeout=60)
+        pdf = HTML(string=html_string).write_pdf(stylesheets=[css_file], timeout=120)
+
 
         # Return PDF response
         response = HttpResponse(pdf, content_type="application/pdf")
@@ -305,4 +313,5 @@ def generate_mls_pdf(request, pk):
 
     except Exception as e:
         logger.error(f"Error generating PDF for property {pk}: {e}")
+        print(f"Error generating PDF for property {pk}: {e}")
         return HttpResponseServerError("An error occurred while generating the PDF. Please try again later.")
