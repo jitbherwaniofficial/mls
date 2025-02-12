@@ -119,7 +119,7 @@ def create_property(request):
                                 )
 
                     messages.success(request, "JSON data successfully imported!")
-                    return redirect("view_property_mls")  # Refresh the form
+                    return redirect("home")  # Refresh the form
 
                 except json.JSONDecodeError:
                     messages.error(request, "Invalid JSON file. Please upload a valid file.")
