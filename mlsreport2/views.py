@@ -168,7 +168,7 @@ def create_property(request):
     return render(request, "create_property.html", context)
 
 
-
+  
 
 @login_required
 def view_property_mls(request, pk):
