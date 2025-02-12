@@ -17,11 +17,9 @@ COPY . .
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Run migrations
-RUN python manage.py collectstatic --noinput
 
 # Expose port
 EXPOSE 8080
 
 # Run Gunicorn server
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "mls.wsgi:application"]
+CMD python manage.py collectstatic --noinput && gunicorn mls.wsgi --bind 0.0.0.0:${PORT:-8080}
