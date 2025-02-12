@@ -283,6 +283,7 @@ def generate_mls_pdf(request, pk):
                 room.width_ft = "N/A"
                 room.height_ft = "N/A"
 
+        static_base_url = request.build_absolute_uri(static(''))
 
         context = {
             "property": property_obj,
@@ -290,6 +291,7 @@ def generate_mls_pdf(request, pk):
             "property_info": property_info,
             "rooms": rooms,
             "washrooms": washrooms,
+            "static_base_url": static_base_url,
         }
 
         # Render the template with the property data
