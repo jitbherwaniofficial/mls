@@ -146,6 +146,17 @@ CSRF_TRUSTED_ORIGINS = [
     "https://mls-production.up.railway.app"
 ]
 
+INSTALLED_APPS += ["corsheaders"]
+
+MIDDLEWARE.insert(1, "corsheaders.middleware.CorsMiddleware")
+
+CORS_ALLOWED_ORIGINS = [
+    "https://mls-production.up.railway.app",
+]
+CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins (for testing)
+CORS_ALLOW_CREDENTIALS = True
+
+
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
