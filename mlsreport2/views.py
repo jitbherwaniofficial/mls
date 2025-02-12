@@ -254,6 +254,22 @@ from django.templatetags.static import static
 # Set up logging
 logger = logging.getLogger(__name__)
 
+from weasyprint import default_url_fetcher
+import ssl
+
+def custom_url_fetcher(url, timeout=120, **kwargs):
+    # Bypass SSL verification for Railway's HTTPS
+    ssl_context = ssl.create_default_context()
+    ssl_context.check_hostname = False
+    ssl_context.verify_mode = ssl.CERT_NONE
+    
+    return default_url_fetcher(
+        url,
+        ssl_context=ssl_context,
+        timeout=timeout
+    )
+
+
 def generate_mls_pdf(request, pk):
     """
     Generates a PDF for the property detail (MLS) page with error handling.
@@ -292,19 +308,36 @@ def generate_mls_pdf(request, pk):
             "washrooms": washrooms,
         }
 
+                # Add static URL with absolute path to context
+        context["static_base_url"] = request.build_absolute_uri(static(""))
+
+
         # Render the template with the property data
         html_string = render_to_string("view_property_mls.html", context)
 
         # css_file = CSS(request.build_absolute_uri(static('css/mlsreport.css')))
-        import os
-        css_path = os.path.join(settings.STATIC_ROOT, 'css/mlsreport.css')
-        css_file = CSS(filename=css_path)
+        # import os
+        # css_path = os.path.join(settings.STATIC_ROOT, 'css/mlsreport.css')
+        # css_file = CSS(filename=css_path)
 
+        # Generate CSS with proper base URL
+        css = CSS(
+            string=render_to_string("css/mlsreport.css", context),
+            base_url=request.build_absolute_uri("/")
+        )
+
+        # Generate PDF with proper base URL
+        html = HTML(
+            string=html_string,
+            base_url=request.build_absolute_uri("/"),
+            url_fetcher=custom_url_fetcher  # Add custom fetcher from previous solution
+        )
 
         # Generate the PDF
-        # pdf = HTML(string=html_string, base_url=request.build_absolute_uri('/')).write_pdf(stylesheets=[css_file], timeout=60)
-        pdf = HTML(string=html_string).write_pdf(stylesheets=[css_file], timeout=120)
+        # pdf = HTML(string=html_string, base_url=request.build_absolute_uri('/')).write_pdf(stylesheets=[css_file], timeout=120)
+        # pdf = HTML(string=html_string).write_pdf(stylesheets=[css_file], timeout=120)
 
+        pdf = html.write_pdf(stylesheets=[css])
 
         # Return PDF response
         response = HttpResponse(pdf, content_type="application/pdf")

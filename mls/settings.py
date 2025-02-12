@@ -148,7 +148,8 @@ CSRF_TRUSTED_ORIGINS = [
     "https://mls-production.up.railway.app"
 ]
 
-
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+WHITENOISE_ROOT = BASE_DIR / 'staticfiles' 
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
