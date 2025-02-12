@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'mlsreport2',
 ]
 
+INSTALLED_APPS += ["whitenoise.runserver_nostatic"]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
