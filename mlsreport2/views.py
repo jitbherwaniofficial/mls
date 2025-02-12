@@ -254,21 +254,6 @@ from django.templatetags.static import static
 # Set up logging
 logger = logging.getLogger(__name__)
 
-from weasyprint import default_url_fetcher
-import ssl
-
-def custom_url_fetcher(url, timeout=120, **kwargs):
-    # Bypass SSL verification for Railway's HTTPS
-    ssl_context = ssl.create_default_context()
-    ssl_context.check_hostname = False
-    ssl_context.verify_mode = ssl.CERT_NONE
-    
-    return default_url_fetcher(
-        url,
-        ssl_context=ssl_context,
-        timeout=timeout
-    )
-
 
 def generate_mls_pdf(request, pk):
     """
@@ -321,17 +306,10 @@ def generate_mls_pdf(request, pk):
         css_file = CSS(filename=css_path)
 
 
-        # Generate PDF with proper base URL
-        html = HTML(
-            string=html_string,
-            base_url=request.build_absolute_uri("/"),
-            url_fetcher=custom_url_fetcher  # Add custom fetcher from previous solution
-        )
 
         # Generate the PDF
         # pdf = HTML(string=html_string, base_url=request.build_absolute_uri('/')).write_pdf(stylesheets=[css_file], timeout=120)
-        pdf = html.write_pdf(stylesheets=[css_file], timeout=120)
-        # pdf = HTML(string=html_string).write_pdf(stylesheets=[css_file], timeout=120)
+        pdf = HTML(string=html_string).write_pdf(stylesheets=[css_file], timeout=120)
 
 
         # Return PDF response
