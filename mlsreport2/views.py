@@ -283,11 +283,6 @@ def generate_mls_pdf(request, pk):
                 room.width_ft = "N/A"
                 room.height_ft = "N/A"
 
-        static_base_url = request.build_absolute_uri(static(''))
-        test_image_url = f"{static_base_url}img/top_right_img.jpg"
-
-        # Log to check if WeasyPrint is fetching the correct URL
-        print(f"🔍 Image URL WeasyPrint is trying to load: {test_image_url}")
 
         context = {
             "property": property_obj,
