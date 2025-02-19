@@ -14,7 +14,7 @@
         <figure class="section_one_left">
             <img src="{{ property.main_image }}"
                 alt="Dynamic Image">
-                <figcaption>{{ property.title }}</figcaption>
+                <figcaption>Title: {{ property.title }}</figcaption>
         </figure>
         <div class="section_one_right">
             <div class="section_one_right_upper">
@@ -146,8 +146,8 @@
                     <p class="mls_box_para"><span>Status:</span> <span class="second_span">{{ listing_info.status }}</span></p>
                 </div>
                 <div class="mls_box mlsb2">
-                    <p class="mls_box_para"><span style="margin-right: 2rem;">legal_description: </span> <span class="second_span ld">{{ listing_info.legal_description }}</span></p>
-                    <p class="mls_box_para"><span>Possession Remarks:</span> <span class="second_span">{{ listing_info.possession_remarks }}</span></p>
+                    <p class="mls_box_para mlsb_para"><span style="margin-right: 2rem;">legal_description: </span> <span class="second_span ld">{{ listing_info.legal_description }}</span></p>
+                    <p class="mls_box_para mlsb_para"><span>Possession Remarks:</span> <span class="second_span">{{ listing_info.possession_remarks }}</span></p>
                     <p class="mls_box_para"><span>Seller Info:</span> <span class="second_span">{{ listing_info.seller_info }}</span></p>
                     <!-- <p class="mls_box_para"><span>Seller Info:</span> <span class="second_span">{{ listing_info.seller_info }}</span></p> -->
                 </div>

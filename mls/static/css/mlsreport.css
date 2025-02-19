@@ -220,7 +220,7 @@ figcaption {
 
 .section_three {
     width: 100%;
-    padding-top: 2rem;
+    padding-top: 3rem;
 }
 
 .client_desc {
@@ -263,7 +263,7 @@ figcaption {
 }
 
 .mls_info {
-    padding-top: 2rem;
+    padding-top: 3rem;
 }
 
 .section_four_wrapper {
@@ -308,6 +308,7 @@ figcaption {
     margin-bottom: 0.8rem;
 }
 
+
 .mls_box span {
     display: inline-block;
 }
@@ -317,6 +318,10 @@ figcaption {
 }
 
 /* SECTION FIVE */
+.section_five {
+    padding-top: 1rem;
+}
+
 .basic_needs_container {
     width: 94%;
     margin: 0 auto;
@@ -425,7 +430,7 @@ figcaption {
 
 /* section seven */
 .section_seven {
-    padding-top: 1.5rem;
+    padding-top: 3rem;
 }
 
 table {
