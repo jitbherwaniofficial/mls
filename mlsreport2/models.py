@@ -72,6 +72,26 @@ class PropertyInfo(models.Model):
     heating_type = models.CharField(max_length=50)
     water = models.CharField(max_length=50)
     sewers = models.CharField(max_length=50)
+    dir_cross_st = models.CharField(max_length=250)
+    parking_drive_space = models.CharField(max_length=50)
+    HST_applicable_to_sale_price = models.CharField(max_length=50)
+    laundary_level = models.CharField(max_length=50)
+    lot_size_source = models.CharField(max_length=50)
+    area = models.CharField(max_length=50)
+    municipality = models.CharField(max_length=50)
+    community = models.CharField(max_length=100)
+    rooms = models.CharField(max_length=50)
+    bedrooms = models.CharField(max_length=50)
+    washrooms = models.CharField(max_length=50)
+    kitchens = models.CharField(max_length=50)
+    exteriors = models.CharField(max_length=50)
+    roof = models.CharField(max_length=50)
+    foundation = models.CharField(max_length=50)
+    garage_type = models.CharField(max_length=50)
+    garage_parking_spaces = models.CharField(max_length=50)
+    basement = models.CharField(max_length=50)
+    water_front = models.CharField(max_length=50)
+
 
     class Meta:
         verbose_name = "Property Information"
