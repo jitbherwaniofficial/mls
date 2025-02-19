@@ -291,7 +291,10 @@ figcaption {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    
+}
+
+.mls_box span {
+    width: 4rem;
 }
 
 .mlsb2 {
