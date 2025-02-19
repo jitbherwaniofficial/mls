@@ -43,13 +43,13 @@
             <div class="section_one_right_lower">
                 <div class="blue_bar">
                     <p class="blue_bar_content">
+                        {{ property.price }}
+                    </p>
+                    <p class="blue_bar_content">
                         Taxes: {{ property.taxes }} / {{ listing_info.tax_year }}
                     </p>
                     <p class="blue_bar_content">
-                        {{ property_info.square_feet }}Sq Ft 
-                    </p>
-                    <p class="blue_bar_content">
-                        SPIS: {{ listing_info.seller_info }}
+                        {{ property_info.lot_size }} 
                     </p>
                 </div>
                 <div class="features_container">
@@ -117,7 +117,7 @@
         </div>
     </section>
     <!-- SECTION TWO -->
-    <section class="section_two">
+    <!-- <section class="section_two">
         <div class="section_wrapper section_two_wrapper">
             <p class="section_two_para">{{property.title}}</p>
             <p class="section_two_para">Front On: {{property_info.fronting_on}}</p>
@@ -125,7 +125,7 @@
             <p class="section_two_para">Lot Size: {{property_info.lot_size}}</p>
             <p class="section_two_para">Legal Desc: {{listing_info.legal_description}}</p>
         </div>
-    </section>
+    </section> -->
     <!-- SECTION THREE -->
     <section class="section_three">
         <p class="client_desc">CLIENT DESCRIPTION</p>
@@ -139,20 +139,20 @@
         <p class="client_desc mls_info">MLS INFORMATION</p>
         <div class="section_wrapper section_four_wrapper">
             <div class="mls_wrapper">
-                <div class="mls_box">
-                    <p class="mls_box_para"><span>MLS Number:</span> <span class="second_span">{{ report.mls_number }}</span></p>
-                    <p class="mls_box_para"><span>Taxes:</span> <span class="second_span">{{ listing_info.taxes }}</span></p>
+                <div class="mls_box mlsb1">
                     <p class="mls_box_para"><span>PIN Number:</span> <span class="second_span">{{ listing_info.pin_number }}</span></p>
-                    <p class="mls_box_para"><span>Possession Remarks:</span> <span class="second_span">{{ listing_info.possession_remarks }}</span></p>
-                </div>
-                <div class="mls_box">
-                    <p class="mls_box_para"><span>Approximate Age:</span> <span class="second_span">{{ property_info.approx_age }}</span></p>
-                    <p class="mls_box_para"><span>Drive:</span> <span class="second_span">{{ property_info.drive }}</span></p>
+                    <p class="mls_box_para"><span>Taxes:</span> <span class="second_span">{{ listing_info.taxes }}</span></p>
                     <p class="mls_box_para"><span>Tax Year:</span> <span class="second_span">{{ listing_info.tax_year }}</span></p>
-                    <p class="mls_box_para"><span></span> <span class="second_span"></span></p>
+                    <p class="mls_box_para"><span>Status:</span> <span class="second_span">{{ listing_info.status }}</span></p>
                 </div>
-                <div class="mls_box">
+                <div class="mls_box mlsb2">
+                    <p class="mls_box_para"><span>legal_description:</span> <span class="second_span ld">{{ listing_info.legal_description }}</span></p>
+                    <p class="mls_box_para"><span>Possession Remarks:</span> <span class="second_span">{{ listing_info.possession_remarks }}</span></p>
+                    <p class="mls_box_para"><span>Seller Info:</span> <span class="second_span">{{ listing_info.seller_info }}</span></p>
+                    <!-- <p class="mls_box_para"><span>Seller Info:</span> <span class="second_span">{{ listing_info.seller_info }}</span></p> -->
                 </div>
+                <!-- <div class="mls_box">
+                </div> -->
             </div>
         </div>
     </section>
@@ -166,136 +166,10 @@
                     </figure>
                     <div class="bar_right">
                         <p class="bar_title">
-                            {{ property_info.heating_source }}
+                            Zoning
                         </p>
                         <p class="bar_zone">
-                            {{ property_info.fronting_on }}
-                        </p>
-                    </div>
-            </div>
-            <div class="basic_needs_bar">
-                    <figure class="icon_circle">
-                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
-                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/other_structure.svg" alt="Static Image">
-                    </figure>
-                    <div class="bar_right">
-                        <p class="bar_title">
-                            {{ property_info.sewers }}
-                        </p>
-                        <p class="bar_zone">
-                            {{ property_info.fronting_on }}
-                        </p>
-                    </div>
-            </div>
-            <div class="basic_needs_bar">
-                    <figure class="icon_circle">
-                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
-                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/gas.svg" alt="Static Image">
-                    </figure>
-                    <div class="bar_right">
-                        <p class="bar_title">
-                            {{ property_info.sewers }}
-                        </p>
-                        <p class="bar_zone">
-                            {{ property_info.fronting_on }}
-                        </p>
-                    </div>
-            </div>
-            <div class="basic_needs_bar">
-                    <figure class="icon_circle">
-                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
-                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/gas.svg" alt="Static Image">
-                    </figure>
-                    <div class="bar_right">
-                        <p class="bar_title">
-                            {{ property_info.sewers }}
-                        </p>
-                        <p class="bar_zone">
-                            {{ property_info.fronting_on }}
-                        </p>
-                    </div>
-            </div>
-            <div class="basic_needs_bar">
-                    <figure class="icon_circle">
-                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
-                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/gas.svg" alt="Static Image">
-                    </figure>
-                    <div class="bar_right">
-                        <p class="bar_title">
-                            {{ property_info.sewers }}
-                        </p>
-                        <p class="bar_zone">
-                            {{ property_info.fronting_on }}
-                        </p>
-                    </div>
-            </div>
-            <div class="basic_needs_bar">
-                    <figure class="icon_circle">
-                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
-                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/water.svg" alt="Static Image">
-                    </figure>
-                    <div class="bar_right">
-                        <p class="bar_title">
-                            {{ property_info.sewers }}
-                        </p>
-                        <p class="bar_zone">
-                            {{ property_info.fronting_on }}
-                        </p>
-                    </div>
-            </div>
-            <div class="basic_needs_bar">
-                    <figure class="icon_circle">
-                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
-                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/water_supply.svg" alt="Static Image">
-                    </figure>
-                    <div class="bar_right">
-                        <p class="bar_title">
-                            {{ property_info.sewers }}
-                        </p>
-                        <p class="bar_zone">
-                            {{ property_info.fronting_on }}
-                        </p>
-                    </div>
-            </div>
-            <div class="basic_needs_bar">
-                    <figure class="icon_circle">
-                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
-                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/water_front.svg" alt="Static Image">
-                    </figure>
-                    <div class="bar_right">
-                        <p class="bar_title">
-                            {{ property_info.sewers }}
-                        </p>
-                        <p class="bar_zone">
-                            {{ property_info.fronting_on }}
-                        </p>
-                    </div>
-            </div>
-            <div class="basic_needs_bar">
-                    <figure class="icon_circle">
-                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
-                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/retirement.svg" alt="Static Image">
-                    </figure>
-                    <div class="bar_right">
-                        <p class="bar_title">
-                            {{ property_info.sewers }}
-                        </p>
-                        <p class="bar_zone">
-                            {{ property_info.fronting_on }}
-                        </p>
-                    </div>
-            </div>
-            <div class="basic_needs_bar">
-                    <figure class="icon_circle">
-                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
-                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/phone.svg" alt="Static Image">
-                    </figure>
-                    <div class="bar_right">
-                        <p class="bar_title">
-                            {{ property_info.sewers }}
-                        </p>
-                        <p class="bar_zone">
-                            {{ property_info.fronting_on }}
+                            West Zone
                         </p>
                     </div>
             </div>
@@ -306,10 +180,10 @@
                     </figure>
                     <div class="bar_right">
                         <p class="bar_title">
-                            {{ property_info.sewers }}
+                            Cable TV
                         </p>
                         <p class="bar_zone">
-                            {{ property_info.fronting_on }}
+                            West Zone
                         </p>
                     </div>
             </div>
@@ -320,10 +194,94 @@
                     </figure>
                     <div class="bar_right">
                         <p class="bar_title">
-                            {{ property_info.sewers }}
+                            Hydro
                         </p>
                         <p class="bar_zone">
-                            {{ property_info.fronting_on }}
+                            West Zone
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
+                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/gas.svg" alt="Static Image">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            {{ property_info.heating_source }}
+                        </p>
+                        <p class="bar_zone">
+                            West Zone
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
+                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/phone.svg" alt="Static Image">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                           Phone
+                        </p>
+                        <p class="bar_zone">
+                            West Zone
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
+                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/water.svg" alt="Static Image">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            Water
+                        </p>
+                        <p class="bar_zone">
+                            {{ property_info.water }}
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
+                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/water_supply.svg" alt="Static Image">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            Water Supply
+                        </p>
+                        <p class="bar_zone">
+                            West Zone
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
+                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/sewer.svg"  alt="Static Image">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                           Sewers
+                        </p>
+                        <p class="bar_zone">
+                            {{ property_info.sewers }}
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
+                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/spec_design.svg" alt="Static Image">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                           Spec Design
+                        </p>
+                        <p class="bar_zone">
+                           Unknown
                         </p>
                     </div>
             </div>
@@ -334,10 +292,52 @@
                     </figure>
                     <div class="bar_right">
                         <p class="bar_title">
-                            {{ property_info.sewers }}
+                            Farm/Agriculture
                         </p>
                         <p class="bar_zone">
-                            {{ property_info.fronting_on }}
+                            West Zone
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
+                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/water_front.svg" alt="Static Image">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            Water Front
+                        </p>
+                        <p class="bar_zone">
+                            West Zone
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
+                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/retirement.svg" alt="Static Image">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            Retirement
+                        </p>
+                        <p class="bar_zone">
+                            West Zone
+                        </p>
+                    </div>
+            </div>
+            <div class="basic_needs_bar">
+                    <figure class="icon_circle">
+                        <!-- <img src="{{ request.build_absolute_uri }}/static/img/sewer.svg" alt=""> -->
+                        <img src="https://jitbherwaniofficial.github.io/jswebart-staticfiles/img/mls/other_structure.svg" alt="Static Image">
+                    </figure>
+                    <div class="bar_right">
+                        <p class="bar_title">
+                            Other Structure
+                        </p>
+                        <p class="bar_zone">
+                           West Zone
                         </p>
                     </div>
             </div>
