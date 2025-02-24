@@ -91,7 +91,8 @@ figcaption {
 .upper_right_image {
     position: absolute;
     right: 0;
-    bottom: -0.5rem;
+    bottom: -0.4rem;
+    /* bottom: -0.5rem; */
     width: 12rem;
     height: 6rem;
 }
