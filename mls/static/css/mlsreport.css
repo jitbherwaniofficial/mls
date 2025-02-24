@@ -324,6 +324,7 @@ figcaption {
 
 .basic_needs_container {
     width: 94%;
+    /* width: 95%; */
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -331,12 +332,13 @@ figcaption {
     flex-direction: column;
     flex-wrap: wrap;
     margin-top: 1.8rem;
-    height: 15rem;
+    height: 12rem;
     align-items: flex-start;
 }
 
 .basic_needs_bar {
     width: 11rem;
+    /* width: 11.5rem; */
     flex: 1 1 auto;
     height: 1.3rem;
     padding: 0.5rem;
@@ -351,6 +353,7 @@ figcaption {
     border-radius: 2rem;
     /* border-bottom: 2px solid rgba(128, 128, 128, 0.5); */
     border-bottom: 2px solid #B0D4FF;
+    flex-grow: 0;
 }
 
 
@@ -362,8 +365,8 @@ figcaption {
     align-items: center;
     border-radius: 50%;
     background-color: #2A4E96;
-    margin-top: -0.35rem;
-    margin-left: -0.35rem;
+    margin-top: -0.47rem;
+    margin-left: -0.47rem;
 }
 
 .icon_circle img {
@@ -378,13 +381,15 @@ figcaption {
 .bar_title {
     font-weight: 600;
     font-size: 0.72rem;
+    /* font-size: 0.65rem; */
     border-bottom: 1px solid rgba(42, 78, 150, 0.5);
     padding-bottom: 0.2rem;
-    margin-top: -0.2rem;
+    margin-top: -0.3rem;
 }
 
 .bar_zone {
     font-weight: 500;
+    /* font-size: 0.65rem; */
 }
 
 .hid {

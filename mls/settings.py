@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['mls-production.up.railway.app', '127.0.0.1']
+ALLOWED_HOSTS = ['mls-production.up.railway.app', '127.0.0.1','mls-ehyp.onrender.com']
 
 
 # Application definition
