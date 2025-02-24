@@ -319,16 +319,16 @@ def generate_mls_pdf(request, pk):
         # Render the template with the property data
         html_string = render_to_string("view_property_mls.html", context)
 
-        css_file = CSS(request.build_absolute_uri(static('css/mlsreport.css')))
-        # import os
-        # css_path = os.path.join(settings.STATIC_ROOT, 'css/mlsreport.css')
-        # css_file = CSS(filename=css_path)
+        # css_file = CSS(request.build_absolute_uri(static('css/mlsreport.css')))
+        import os
+        css_path = os.path.join(settings.STATIC_ROOT, 'css/mlsreport.css')
+        css_file = CSS(filename=css_path)
 
 
 
         # Generate the PDF
-        pdf = HTML(string=html_string, base_url=request.build_absolute_uri('/')).write_pdf(stylesheets=[css_file], timeout=120)
-        # pdf = HTML(string=html_string).write_pdf(stylesheets=[css_file], timeout=120)
+        # pdf = HTML(string=html_string, base_url=request.build_absolute_uri('/')).write_pdf(stylesheets=[css_file], timeout=120)
+        pdf = HTML(string=html_string).write_pdf(stylesheets=[css_file], timeout=120)
 
 
         # Return PDF response
